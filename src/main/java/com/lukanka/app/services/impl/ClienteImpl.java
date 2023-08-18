@@ -1,5 +1,7 @@
 package com.lukanka.app.services.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +11,7 @@ import com.lukanka.app.services.ClienteService;
 
 @Service
 public class ClienteImpl implements ClienteService {
-	
+
 	@Autowired
 	private ClienteRepository clienteRepository;
 
@@ -20,9 +22,9 @@ public class ClienteImpl implements ClienteService {
 	}
 
 	@Override
-	public Cliente buscarClienteID(String identidad) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Cliente> buscarClienteID(String identidad) {
+		Optional<Cliente> cliente = clienteRepository.findById(identidad);
+		return cliente;
 	}
 
 	@Override
